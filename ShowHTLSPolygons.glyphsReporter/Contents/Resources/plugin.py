@@ -9,7 +9,7 @@ from AppKit import NSAffineTransform
 
 import os
 import imp
-imp.load_source('HT_LetterSpacer_script', os.path.expanduser("~/Library/Application Support/Glyphs 3/Repositories/HT "
+imp.load_source("HT_LetterSpacer_script", os.path.expanduser("~/Library/Application Support/Glyphs 3/Repositories/HT "
                                                              "Letterspacer/HT_LetterSpacer_script.py"))
 
 from HT_LetterSpacer_script import *
