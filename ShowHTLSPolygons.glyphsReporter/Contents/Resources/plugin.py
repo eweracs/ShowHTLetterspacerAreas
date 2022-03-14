@@ -20,9 +20,9 @@ class ShowHTLSPolygons(ReporterPlugin):
 	@objc.python_method
 	def settings(self):
 		self.menuName = Glyphs.localize({
-			"en": "HT Letterspacer Polygons",
-			"de": "HT-Letterspacer-Polygone",
-			"fr": "Polygons HT Letterspacer",
+			"en": "HT Letterspacer Areas",
+			"de": "Flächen für HT Letterspacer",
+			"fr": "Aires HT Letterspacer",
 			})
 
 	@objc.python_method
@@ -79,15 +79,6 @@ class ShowHTLSPolygons(ReporterPlugin):
 	def inactiveLayerForeground(self, layer):
 		NSColor.greenColor().colorWithAlphaComponent_(0.4).set()
 		self.create_polygons(layer)
-
-	@objc.python_method
-	def preview(self, layer):
-		NSColor.blueColor().set()
-		if layer.paths:
-			layer.bezierPath.fill()
-		if layer.components:
-			for component in layer.components:
-				component.bezierPath.fill()
 
 	@objc.python_method
 	def __file__(self):
