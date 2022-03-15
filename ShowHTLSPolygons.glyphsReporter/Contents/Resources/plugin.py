@@ -41,7 +41,7 @@ class ShowHTLSPolygons(ReporterPlugin):
 	@objc.python_method
 	def create_polygons(self, layer):
 		engine = HTLetterspacerLib()
-		engine.paramDepth = int(Glyphs.font.selectedFontMaster.customParameters["paramDepth"])
+		engine.paramDepth = int(Glyphs.font.selectedFontMaster.customParameters["paramDepth"] or 15)
 		engine.paramOver = int(Glyphs.font.selectedFontMaster.customParameters["paramOver"] or 0)
 		engine.xHeight = Glyphs.font.selectedFontMaster.xHeight
 		engine.factor = 1.0
