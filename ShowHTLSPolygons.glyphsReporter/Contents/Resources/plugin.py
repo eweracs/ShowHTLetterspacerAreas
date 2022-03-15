@@ -57,7 +57,7 @@ class ShowHTLSPolygons(ReporterPlugin):
 		decomposed_layer = layer.copyDecomposedLayer()
 		decomposed_layer.parent = layer.parent
 
-		for polygon in engine.spaceMain(decomposed_layer, layer):
+		for polygon in engine.setSpace(decomposed_layer, layer):
 			path = GSPath()
 			for node in polygon:
 				new_node = GSNode()
