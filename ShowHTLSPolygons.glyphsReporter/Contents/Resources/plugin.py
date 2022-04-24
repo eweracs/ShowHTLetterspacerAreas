@@ -57,6 +57,11 @@ class ShowHTLSPolygons(ReporterPlugin):
 		for param in ["paramArea", "paramDepth", "paramOver"]:
 			if self.master_params[layer.master.id][param] != layer.master.customParameters[param]:
 				params_changed = True
+				self.master_params[layer.master.id] = {
+				"paramArea": layer.master.customParameters["paramArea"],
+				"paramDepth": layer.master.customParameters["paramDepth"],
+				"paramOver": layer.master.customParameters["paramOver"],
+			}
 
 		if self.glyphs_last_change[layer.parent] != layer.parent.lastChange or not layer.tempData["polygons"] or \
 				params_changed:
