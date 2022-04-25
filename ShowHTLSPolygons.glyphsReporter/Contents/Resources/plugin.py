@@ -47,6 +47,8 @@ class ShowHTLSPolygons(ReporterPlugin):
 
 	@objc.python_method
 	def create_polygons(self, layer):
+		if not layer.shapes:
+			return
 		if layer.master.id not in self.master_params:
 			self.master_params[layer.master.id] = {
 				"paramArea": layer.master.customParameters["paramArea"],
