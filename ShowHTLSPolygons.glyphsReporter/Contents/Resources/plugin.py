@@ -65,7 +65,6 @@ class ShowHTLSPolygons(ReporterPlugin):
 
 		if self.glyphs_last_change[layer.parent] != layer.parent.lastChange or not layer.tempData["polygons"] or \
 				params_changed:
-			print("hey")
 			engine = HTLetterspacerLib()
 			engine.paramDepth = int(Glyphs.font.selectedFontMaster.customParameters["paramDepth"] or 15)
 			engine.paramOver = int(Glyphs.font.selectedFontMaster.customParameters["paramOver"] or 0)
