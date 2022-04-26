@@ -13,7 +13,7 @@
 	<key>CFBundleName</key>
 	<string>ShowHTLSPolygons</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string> <!-- 1.0 -->
+	<string>1.1</string> <!-- 1.1 -->
 	<key>CFBundleVersion</key>
 	<string>1</string> <!-- 123 -->
 	<key>UpdateFeedURL</key>
@@ -21,7 +21,7 @@
 	<key>productPageURL</key>
 	<string>https://github.com/eweracs/ShowHTLetterspacerAreas</string>
 	<key>productReleaseNotes</key>
-	<string>Initial release</string>
+	<string>Fix lagging</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright, Sebastian Carewe, 2022</string>
 	<key>NSPrincipalClass</key>
