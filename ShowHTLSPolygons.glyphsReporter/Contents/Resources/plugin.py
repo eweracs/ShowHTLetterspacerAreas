@@ -13,7 +13,7 @@ try:
 	import_success = True
 except:
 	Message(title="HTLS Manager required",
-	        message="Please install HTLS Manager from github.com/eweracs/HTLSManager and restart Glyphs.")
+	        message="Please install HTLS Manager from the plugin manager and restart Glyphs.")
 
 
 class ShowHTLSAreas(ReporterPlugin):
