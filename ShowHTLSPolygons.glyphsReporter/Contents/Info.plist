@@ -7,25 +7,25 @@
 	<key>CFBundleExecutable</key>
 	<string>plugin</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.eweracs.ShowHTLSPolygons</string>
+	<string>com.eweracs.ShowHTLSAreas</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>ShowHTLSPolygons</string>
+	<string>ShowHTLSAreas</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string> <!-- 1.1 -->
+	<string>1.2</string> <!-- 1.2 -->
 	<key>CFBundleVersion</key>
 	<string>1</string> <!-- 123 -->
 	<key>UpdateFeedURL</key>
-	<string>https://github.com/eweracs/ShowHTLetterspacerAreas/blob/main/ShowHTLSPolygons.glyphsReporter/Contents/Info.plist</string>
+	<string>https://github.com/eweracs/ShowHTLetterspacerAreas/blob/main/ShowHTLSAreas.glyphsReporter/Contents/Info.plist</string>
 	<key>productPageURL</key>
 	<string>https://github.com/eweracs/ShowHTLetterspacerAreas</string>
 	<key>productReleaseNotes</key>
-	<string>Fix lagging</string>
+	<string>Integrate with HTLS Manager</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright, Sebastian Carewe, 2022</string>
 	<key>NSPrincipalClass</key>
-	<string>ShowHTLSPolygons</string>
+	<string>ShowHTLSAreas</string>
 	<key>PyMainFileNames</key>
 	<array>
 		<string>plugin.py</string>

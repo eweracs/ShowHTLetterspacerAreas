@@ -12,10 +12,11 @@ try:
 	from HTLSLibrary import *
 	import_success = True
 except:
-	Message("Please install HTLS Manager from the plugin manager and restart Glyphs.", "HTLS Manager required")
+	Message(title="HTLS Manager required",
+	        message="Please install HTLS Manager from github.com/eweracs/HTLSManager and restart Glyphs.")
 
 
-class ShowHTLSPolygons(ReporterPlugin):
+class ShowHTLSAreas(ReporterPlugin):
 
 	@objc.python_method
 	def start(self):
