@@ -22,6 +22,7 @@ class ShowHTLSAreas(ReporterPlugin):
 	def start(self):
 		self.master_params = {}
 		self.glyphs_last_change = {}
+		self.gave_warning = False
 
 	@objc.python_method
 	def settings(self):
@@ -50,6 +51,12 @@ class ShowHTLSAreas(ReporterPlugin):
 			return
 		if not layer.shapes:
 			return
+		if not self.gave_warning:
+			if not Glyphs.font.selectedFontMaster.customParameters["paramArea"] \
+					or not Glyphs.font.selectedFontMaster.customParameters["paramDepth"]:
+				Message(title="Missing configuration",
+				        message="Please set up parameters in HTLS Manager. Using default values.")
+				self.gave_warning = True
 		if layer.master.id not in self.master_params:
 			self.master_params[layer.master.id] = {
 				"paramArea": layer.master.customParameters["paramArea"],
