@@ -2,10 +2,10 @@
 
 from __future__ import division, print_function, unicode_literals
 import objc
-from GlyphsApp import Glyphs, GSLayer, GSPath, GSNode, GSLINE, Message
+from GlyphsApp import Glyphs, Message
 from GlyphsApp.plugins import ReporterPlugin
 import math
-from AppKit import NSAffineTransform, NSColor
+from AppKit import NSAffineTransform, NSBezierPath, NSColor
 
 import_success = False
 try:
@@ -84,28 +84,23 @@ class ShowHTLSAreas(ReporterPlugin):
 			if not htls_polygons:
 				return
 
-			new_layer = GSLayer()
+			bezierPath = NSBezierPath.new()
 
 			for polygon in htls_polygons:
-				path = GSPath()
+				bezierPath.moveTo_(polygon[-1])
 				for node in polygon:
-					new_node = GSNode()
-					new_node.type = GSLINE
-					new_node.position = (node[0], node[1])
-					path.nodes.append(new_node)
-				path.closed = True
-				new_layer.paths.append(path)
+					bezierPath.lineTo_(node)
+				bezierPath.closePath()
 
-			new_layer = self.slant_layer(new_layer)
 			NSColor.greenColor().colorWithAlphaComponent_(0.4).set()
-			new_layer.completeBezierPath.fill()
-
+			bezierPath.fill()
+			layer.tempData["polygons"] = bezierPath
 		else:
-			new_layer = layer.tempData["polygons"]
-			NSColor.greenColor().colorWithAlphaComponent_(0.4).set()
-			new_layer.completeBezierPath.fill()
+			bezierPath = layer.tempData["polygons"]
 
-		layer.tempData["polygons"] = new_layer
+		if bezierPath:
+			NSColor.greenColor().colorWithAlphaComponent_(0.4).set()
+			bezierPath.fill()
 
 	@objc.python_method
 	def foreground(self, layer):
