@@ -2,18 +2,20 @@
 
 from __future__ import division, print_function, unicode_literals
 import objc
-from GlyphsApp import *
-from GlyphsApp.plugins import *
+from GlyphsApp import Glyphs, GSLayer, GSPath, GSNode, GSLINE, Message
+from GlyphsApp.plugins import ReporterPlugin
 import math
-from AppKit import NSAffineTransform
+from AppKit import NSAffineTransform, NSColor
 
 import_success = False
 try:
-	from HTLSLibrary import *
+	from HTLSLibrary import HTLSEngine
 	import_success = True
 except:
-	Message(title="HTLS Manager required",
-	        message="Please install HTLS Manager from the plugin manager and restart Glyphs.")
+	Message(
+		title="HTLS Manager required",
+		message="Please install HTLS Manager from the plugin manager and restart Glyphs."
+	)
 
 
 class ShowHTLSAreas(ReporterPlugin):
@@ -53,9 +55,11 @@ class ShowHTLSAreas(ReporterPlugin):
 			return
 		if not self.gave_warning:
 			if not Glyphs.font.selectedFontMaster.customParameters["paramArea"] \
-					or not Glyphs.font.selectedFontMaster.customParameters["paramDepth"]:
-				Message(title="Missing configuration",
-				        message="Please set up parameters in HTLS Manager. Using default values.")
+				or not Glyphs.font.selectedFontMaster.customParameters["paramDepth"]:
+				Message(
+					title="Missing configuration",
+					message="Please set up parameters in HTLS Manager. Using default values."
+				)
 				self.gave_warning = True
 		if layer.master.id not in self.master_params:
 			self.master_params[layer.master.id] = {
@@ -74,7 +78,7 @@ class ShowHTLSAreas(ReporterPlugin):
 				}
 
 		if self.glyphs_last_change[layer.parent] != layer.parent.lastChange or not layer.tempData["polygons"] or \
-				params_changed:
+			params_changed:
 
 			htls_polygons = HTLSEngine(layer).calculate_polygons()
 			if not htls_polygons:
